@@ -1,7 +1,6 @@
 package tests;
 
 import classes.Division;
-import java.util.Scanner;
 
 public class TestsDivision {
 	
