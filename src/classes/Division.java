@@ -15,7 +15,7 @@ public class Division {
 	 */
 	public Division(){
 		this.code = 0;
-		this.libelle = "";
+		this.libelle = "NULL";
 	}
 	
 	//Contructeur
@@ -70,6 +70,6 @@ public class Division {
 	 * @return le code & le libelle
 	 */
 	public String toString(){
-		return "Le code est : " + code + "et le libelle est : " + libelle;
+		return "Le code est : " + this.code + " et le libelle est : " + this.libelle;
 	}
 }
