@@ -6,16 +6,16 @@ import java.sql.SQLException;
 
 public class ConnexionPostgreSql {
 	
-	AccessBDD access = new AccessBDD(); 
+	private static AccessBDD access = new AccessBDD(); 
 	
 	private static Connection connect;
-	private static String url = "http://172.16.99.2/phppgadmin/";
+	private static String url = "jdbc:postgresql://172.16.99.2:5432/tdabre";
 	
 	
-	public Connection getInstance() {
+	public static Connection getInstance() {
 		if (connect == null) {
 			try {
-				connect = DriverManager.getConnection(url, access.getUser(), access.getPass());
+				connect = DriverManager.getConnection(url, access.getLogin(), access.getPassword());
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}

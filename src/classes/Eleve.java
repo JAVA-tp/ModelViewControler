@@ -6,6 +6,7 @@ public class Eleve {
 	
 	private int code;
 	private String nom, prenom, dateNaiss;
+	Division div;
 	
 	//Contructeur par défaut
 	/**
@@ -18,6 +19,7 @@ public class Eleve {
 		this.nom = "NULL";
 		this.prenom = "NULL";
 		this.dateNaiss = "NULL";
+		this.div = null;
 	}
 	
 	//Contructeur
@@ -26,11 +28,12 @@ public class Eleve {
 	 * @param code
 	 * @param libelle
 	 */
-	public Eleve(int code, String nom, String prenom, String dateNaiss){
-		this.code = 0;
+	public Eleve(int code, String nom, String prenom, String dateNaiss, Division div){
+		this.code = code;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.dateNaiss = dateNaiss;
+		this.div = div;
 	}
 	//Accesseurs
 	
@@ -41,7 +44,7 @@ public class Eleve {
 	public int getCode() {
 		return this.code;
 	}
-	
+
 	/**
 	 * Accesseur du nom
 	 * @return nom(string)
@@ -66,6 +69,15 @@ public class Eleve {
 		return this.dateNaiss;
 	}
 	
+	/**
+	 * Accesseur de la division
+	 * 
+	 * @return div (Division)
+	 */
+	public Division getDivision() {
+		return this.div;
+	}
+
 	//Mutateurs
 	
 	/**
@@ -99,13 +111,20 @@ public class Eleve {
 	public void setDateNaiss(String dateNaiss) {
 		this.dateNaiss = dateNaiss;
 	}
+
+	/**
+	 * Setteur de la division
+	 */
+	public void setDiv(Division obj) {
+		this.div = obj;
+	}
 	
 	//Méthode
 	/**
 	 * Methode toString
 	 * @return le code & le libelle
 	 */
-	public String toString(){
+	public String ToString(){
 		return "L'éléve " + this.prenom + " " + this.nom + " né le " + this.dateNaiss + " à pour code : " + this.code;
 	}
 }
