@@ -3,6 +3,8 @@ package dao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import classes.Division;
 
@@ -60,5 +62,24 @@ public class DivisionDAO extends DAO<Division> {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+	}
+
+	public List<Division> readAll() {
+		List<Division> divisions = new ArrayList<Division>();
+		try {
+			ResultSet result = this.connect.createStatement(
+					ResultSet.TYPE_SCROLL_INSENSITIVE,
+					ResultSet.CONCUR_UPDATABLE).executeQuery(
+					"SELECT * FROM \"mvc\".Division");
+			while (result.next()) {
+				Division uneDivision = new Division(result.getInt("code"),
+						result.getString("libelle"));
+				divisions.add(uneDivision);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return divisions;
 	}
 }

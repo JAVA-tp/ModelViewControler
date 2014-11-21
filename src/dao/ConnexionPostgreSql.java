@@ -22,4 +22,8 @@ public class ConnexionPostgreSql {
 		}
 		return connect;
 	}
+	
+	public static void Stop() {
+		connect.close();
+	}
 }
