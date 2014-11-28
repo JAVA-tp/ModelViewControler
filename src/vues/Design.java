@@ -1,62 +1,32 @@
 package vues;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JMenuBar;
-import javax.swing.JMenu;
-import javax.swing.JMenuItem;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import javax.swing.SwingConstants;
-import javax.swing.KeyStroke;
-
-import classes.Division;
-import start.PointEntree;
-
-import java.awt.event.KeyEvent;
-import java.awt.event.InputEvent;
 import java.util.List;
 
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+
+import classes.Division;
+import controleurs.ControleurPrincipal;
 import dao.DAO;
 import dao.DivisionDAO;
-import dao.EleveDAO;
-import javax.swing.JTable;
-import javax.swing.JLabel;
-
-import controleurs.ControleurPrincipal;
-import javax.swing.JButton;
 
 
 public class Design extends JFrame {
 
 	private JPanel contentPane;
 	public JMenuItem mntmFermer = new JMenuItem("Fermer");
-	protected static ControleurPrincipal controleur;
+	private ControleurPrincipal controleur = new ControleurPrincipal(null, null);
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					PointEntree.interfaceGraph.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
+	
 	/**
 	 * Create the frame.
 	 */
-	public Design(ControleurPrincipal unControleur) {
-		this.controleur=unControleur;
+	public Design(ControleurPrincipal controleur) {
+		this.controleur=controleur;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		
@@ -91,5 +61,7 @@ public class Design extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		
+		setVisible(true);
 	}
 }

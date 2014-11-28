@@ -9,6 +9,7 @@ import dao.DivisionDAO;
 import dao.EleveDAO;
 
 public class PointEntree {
+	
 	public static Design interfaceGraph;
 
 	/**
@@ -21,7 +22,7 @@ public class PointEntree {
 		ControleurPrincipal controleurPrincipal = new ControleurPrincipal(modeleDivision, modeleEleve);
 		interfaceGraph = new Design(controleurPrincipal);
 		controleurPrincipal.lienVue(interfaceGraph);
-		interfaceGraph.main(args);
+		
 		ConnexionPostgreSql.Stop();
 	}
 }
